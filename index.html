@@ -92,5 +92,63 @@
     </div>
 
     <script src="script.js"></script> <!-- Linking JavaScript file -->
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 20px;
+    color: #FFD700;
+    text-shadow: 3px 3px 5px rgba(255, 215, 0, 0.6);
+}
+.button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+.button {
+    background-color: #ff5733;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    min-width: 140px;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 games per row */
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
+}
+.game {
+    text-align: center;
+}
+.game img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.game img:hover {
+    transform: scale(1.1);
+}
+.game-title {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #FFD700;
+}
+</style>
 </body>
 </html>
