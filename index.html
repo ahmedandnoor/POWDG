@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlayFusion - Online Games</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Linking CSS file -->
+    <title>Play-Online-Without-Downloading-Game</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linking CSS file -->
 </head>
 <body onload="switchPage('pc')">
 
-    <div class="logo">PlayFusion</div>
+    <div class="logo">POWDG</div>
 
     <div class="button-container">
         <button class="button" onclick="switchPage('pc')">PC Games</button>
@@ -1435,70 +1435,185 @@
 
     </div>
 
-    <script src="script.js"></script> <!-- Linking JavaScript file -->
+    <footer><div class="footer glow-footer">Developed By H.A.K</div></footer>
+
+
+
+    <script src=""></script> <!-- Linking JavaScript file -->
 <style>
-    body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #121212;
-    color: white;
+    /* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
     margin: 0;
     padding: 0;
 }
+
+/* Logo */
 .logo {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: bold;
-    padding: 20px;
-    color: #FFD700;
-    text-shadow: 3px 3px 5px rgba(255, 215, 0, 0.6);
+    padding: 30px 20px 10px;
+    color: #00fff7;
+    text-shadow: 2px 2px 10px #00fff7;
+    font-family: 'Orbitron', sans-serif;
 }
+
+/* Button Container */
 .button-container {
     position: fixed;
     top: 20px;
     right: 20px;
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    z-index: 1000;
 }
+
+/* Buttons */
 .button {
-    background-color: #ff5733;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    cursor: pointer;
+    border-radius: 8px;
     font-size: 16px;
-    border-radius: 5px;
-    min-width: 140px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
+
+.button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}
+
+.button.active {
+    background: linear-gradient(135deg, #00fff7, #00bcd4);
+    box-shadow: 0 0 10px #00fff7, 0 0 20px #00bcd4;
+    color: #000;
+    font-weight: bold;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+
+
+/* Gallery Layout */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 games per row */
-    gap: 15px;
-    padding: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
+
+/* Game Card */
 .game {
-    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.game:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Game Image */
 .game img {
     width: 100%;
     height: 150px;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
+
 .game img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
+
+/* Game Title */
 .game-title {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #FFD700;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00fff7;
+    text-shadow: 1px 1px 2px rgba(0, 255, 247, 0.4);
 }
+/* developer */
+
+.glow-footer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #00fff7;
+    animation: glow 2s ease-in-out infinite alternate, fadeInUp 1.5s ease-out;
+    text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7, 0 0 20px #00fff7;
+}
+
+/* Glow effect animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+    }
+    to {
+        text-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7;
+    }
+}
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
+    
+    
+
     <script>
-        function switchPage(page) {
+        let clickCount = 0; // Counter to track button clicks
+
+function switchPage(page) {
     document.getElementById('pcGames').style.display = (page === 'pc') ? 'grid' : 'none';
     document.getElementById('androidGames').style.display = (page === 'android') ? 'grid' : 'none';
+
+    clickCount++; // Increment click count
+
+    if (clickCount % 2 === 0) { // Open link every 2nd click
+        if (page === 'pc') {
+            window.open("https://adsjustads24.blogspot.com/", "_blank");
+        } else if (page === 'android') {
+            window.open("https://adsjustads24.blogspot.com/", "_blank");
+        }
+    }
 }
+
     </script>
 </body>
 </html>
